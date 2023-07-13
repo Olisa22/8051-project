@@ -1,0 +1,22 @@
+#include <reg51.h>  // Include the 8051 register definitions
+
+#define LED_PIN P1  // Define the LED pin as P1 (Port 1)
+
+void delay(unsigned int milliseconds) {
+    unsigned int i, j;
+    for (i = 0; i < milliseconds; i++) {
+        for (j = 0; j < 112; j++);  // Adjust this delay for the desired speed
+    }
+}
+
+void main() {
+    LED_PIN = 0;  // Set the LED pin as output
+
+    while (1) {
+        LED_PIN = 1;  // Turn on the LED
+        delay(1000);  // Delay for 1 second (1000 milliseconds)
+
+        LED_PIN = 0;  // Turn off the LED
+        delay(1000);  // Delay for 1 second (1000 milliseconds)
+    }
+}
